@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dogs and Meals</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Dogs:</h1>
+    <ul>
+        <% data.dogs.forEach(dog => { %>
+        <li>Name: <%= dog.name %>, Breed: <%= dog.breed %></li>
+        <% }); %>
+    </ul>
+
+    <h1>Meals:</h1>
+    <ul>
+        <% data.meals.forEach(meal => { %>
+        <li>Name: <%= meal.name %>, Type: <%= meal.type %></li>
+        <% }); %>
+    </ul>
+</body>
+</html>

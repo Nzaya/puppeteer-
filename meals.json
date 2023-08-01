@@ -1,0 +1,12 @@
+{
+  "dogs": [
+    { "name": "Rex", "breed": "Labrador" },
+    { "name": "Buddy", "breed": "Golden Retriever" },
+    { "name": "Charlie", "breed": "Poodle" }
+  ],
+  "meals": [
+    { "name": "Breakfast", "type": "Healthy" },
+    { "name": "Lunch", "type": "Balanced" },
+    { "name": "Dinner", "type": "Delicious" }
+  ]
+}
