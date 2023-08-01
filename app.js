@@ -47,29 +47,28 @@ function createSignatureFormFromJSON(jsonPatient){
     console.log(formHTML);
 }
 
+
 //function to determine whether to generate pdf or signature form
-function processJSONPatient(jsonPatient){
+async function processJSONPatient(jsonPatient){
     if('NEEDSIG' in jsonPatient){
-        createSignatureFormFromJSON(jsonPatient);
+      await  createSignatureFormFromJSON(jsonPatient);
     }else{
-        generatePDFfromJSON(jsonPatient);
+       await generatePDFfromJSON(jsonPatient);
     }
 }
 
-// //Schedule the task to run at 4AM
-// const job = '31 * * * *'
-//  schedule.scheduleJob(job, ()=>{
-//     processJSONPatient()
-//  })
-
-//Schedule to run at 4AM
-schedule.scheduleJob('31 * * * *', function(){
+//Schedule to run at 4AM that is read the files during the indicated time
+schedule.scheduleJob('09 * * * *', async() =>{
     console.log("This is running");
-})
 
-//Read the files
-processJSONPatient(jsonPatient1); //this generates a pdf
-processJSONPatient(jsonPatient2); //this generates a form
+    //Read the files
+await Promise.all([
+    processJSONPatient(jsonPatient1), //this generates a pdf
+processJSONPatient(jsonPatient2) //this generates a form
+]);
+
+});
+
 
 
 // 0 4 * * *
